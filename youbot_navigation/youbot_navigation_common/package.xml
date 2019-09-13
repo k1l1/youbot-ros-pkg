@@ -2,7 +2,7 @@
   <name>youbot_navigation_common</name>
   <version>1.0.0</version>
   <description>Common files for local and local navigation of the youBot</description>
-  <maintainer email="">Alexey Zakharov</maintainer>
+  <maintainer email="test@test.org">Alexey Zakharov</maintainer>
 
   <license>LGPL</license>
   <license>BSD</license>

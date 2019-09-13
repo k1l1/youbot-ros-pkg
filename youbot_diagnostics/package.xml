@@ -1,8 +1,8 @@
 <package>
-  <name></name>
+  <name>youbot_diagnostics</name>
   <version>1.0.0</version>
   <description>youbot_diagnostics</description>
-  <maintainer email="">Maintained by Frederik Hegger</maintainer>
+  <maintainer email="test@test.org">Maintained by Frederik Hegger</maintainer>
 
   <license>BSD</license>
 

@@ -2,7 +2,7 @@
   <name>tower_of_hanoi_sdk</name>
   <version>1.0.0</version>
   <description>tower_of_hanoi_sdk</description>
-  <maintainer email="">Pinaki Sunil Banerjee</maintainer>
+  <maintainer email="test@test.org">Pinaki Sunil Banerjee</maintainer>
 
   <license>BSD</license>
 

@@ -1,8 +1,8 @@
 <package>
-  <name></name>
+  <name>youbot_manipulation</name>
   <version>1.0.0</version>
   <description>The youbot_manipulation stack contains algorithms for generation of trajectories for the KUKA youBot manipulator.</description>
-  <maintainer email="">Sebastian Blumenthal</maintainer>
+  <maintainer email="test@test.org">Sebastian Blumenthal</maintainer>
 
   <license>LGPL</license>
   <license>BSD</license>

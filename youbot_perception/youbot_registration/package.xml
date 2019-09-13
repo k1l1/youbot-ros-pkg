@@ -10,7 +10,7 @@
 	   be visible by the camera.
 	   
        The code has been contributed in cooperation with inos Automationssoftware GmbH.</description>
-  <maintainer email="">Constantinos Lantos (inos Automationssoftware GmbH)</maintainer>
+  <maintainer email="test@test.org">Constantinos Lantos (inos Automationssoftware GmbH)</maintainer>
 
   <license>LGPL</license>
   <license>BSD</license>

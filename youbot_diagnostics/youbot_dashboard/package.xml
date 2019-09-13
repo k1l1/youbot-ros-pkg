@@ -2,7 +2,7 @@
   <name>youbot_dashboard</name>
   <version>1.0.0</version>
   <description>youbot_dashboard is a modified version of pr2_dashboard package.</description>
-  <maintainer email="">Frederik Hegger</maintainer>
+  <maintainer email="test@test.org">Frederik Hegger</maintainer>
 
   <license>BSD</license>
 

@@ -2,8 +2,8 @@
   <name>youbot_battery_monitor</name>
   <version>1.0.0</version>
   <description>raw_youbot_battery_monitor</description>
-  <maintainer email="">Frederik Hegger</maintainer>
-  <maintainer email="">Jan Paulus</maintainer>
+  <maintainer email="test@test.org">Frederik Hegger</maintainer>
+  <maintainer email="test@test.org">Jan Paulus</maintainer>
 
   <license>BSD</license>
 

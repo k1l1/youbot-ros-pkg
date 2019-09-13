@@ -2,7 +2,7 @@
   <name>simple_trajectory_controller</name>
   <version>1.0.0</version>
   <description>youbot_arm_navigation</description>
-  <maintainer email="">Dominik Lechner</maintainer>
+  <maintainer email="test@test.org">Dominik Lechner</maintainer>
 
   <license>LGPL</license>
   <license>BSD</license>

@@ -2,8 +2,8 @@
   <name>hanoi</name>
   <version>1.0.0</version>
   <description>hanoi</description>
-  <maintainer email="">Malte Vesper</maintainer>
-  <maintainer email="">Steffen Waeldele</maintainer>
+  <maintainer email="test@test.org">Malte Vesper</maintainer>
+  <maintainer email="test@test.org">Steffen Waeldele</maintainer>
 
   <license>LGPL</license>
   <license>BSD</license>

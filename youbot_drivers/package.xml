@@ -1,8 +1,8 @@
 <package>
-  <name></name>
+  <name>youbot_drivers</name>
   <version>1.0.0</version>
   <description>youbot_drivers</description>
-  <maintainer email="">Maintained by Sebastian Blumenthal</maintainer>
+  <maintainer email="test@test.org">Maintained by Sebastian Blumenthal</maintainer>
 
   <license>BSD</license>
 

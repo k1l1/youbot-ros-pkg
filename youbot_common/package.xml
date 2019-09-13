@@ -1,9 +1,9 @@
 <package>
-  <name></name>
+  <name>youbot_common</name>
   <version>1.0.0</version>
   <description>youbot_common</description>
-  <maintainer email="">Alexey Zakharov</maintainer>
-  <maintainer email="">Sebastian Blumenthal</maintainer>
+  <maintainer email="test@test.org">Alexey Zakharov</maintainer>
+  <maintainer email="test@test.org">Sebastian Blumenthal</maintainer>
 
   <license>LGPL</license>
   <license>BSD</license>

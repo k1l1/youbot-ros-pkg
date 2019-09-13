@@ -2,7 +2,7 @@
   <name>youbot_navigation_local</name>
   <version>1.0.0</version>
   <description>Local navigation</description>
-  <maintainer email="">Alexey Zakharov</maintainer>
+  <maintainer email="test@test.org">Alexey Zakharov</maintainer>
 
   <license>LGPL</license>
   <license>BSD</license>

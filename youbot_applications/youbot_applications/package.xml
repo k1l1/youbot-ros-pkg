@@ -2,7 +2,7 @@
   <name>youbot_applications</name>
   <version>1.0.0</version>
   <description>Contains various sample, demo or experimental applications for the KUKA youBot.</description>
-  <maintainer email="">Sebastian Blumenthal</maintainer>
+  <maintainer email="test@test.org">Sebastian Blumenthal</maintainer>
 
   <license>LGPL</license>
   <license>BSD</license>

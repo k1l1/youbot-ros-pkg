@@ -2,7 +2,7 @@
   <name>youbot_diagnostic_aggregator</name>
   <version>1.0.0</version>
   <description>youbot_diagnostic_aggregator</description>
-  <maintainer email="">Frederik Hegger</maintainer>
+  <maintainer email="test@test.org">Frederik Hegger</maintainer>
 
   <license>BSD</license>
 
