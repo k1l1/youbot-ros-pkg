@@ -1,0 +1,33 @@
+<package>
+  <name></name>
+  <version>1.0.0</version>
+  <description>youbot_perception</description>
+  <maintainer email="">Maintained by Sebastian Blumenthal</maintainer>
+
+  <license>LGPL</license>
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/youbot_perception</url>
+  <!-- <url type="bugtracker"></url> -->
+
+  <author>Maintained by Sebastian Blumenthal</author>
+
+  <!-- Dependencies which this package needs to build itself. -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Dependencies needed to compile this package. -->
+
+
+  <!-- Dependencies needed after this package is compiled. -->
+  <run_depend>tower_of_hanoi_sdk</run_depend>
+  <run_depend>youbot_registration</run_depend>
+
+  <!-- Dependencies needed only for running tests. -->
+
+
+
+
+
+
+
+</package>

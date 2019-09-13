@@ -1,0 +1,46 @@
+<package>
+  <name>youbot_trajectory_action_server</name>
+  <version>1.0.0</version>
+  <description>youbot_trajectory_action_server</description>
+  <maintainer email="">Alexey Zakharov</maintainer>
+
+  <license>LGPL</license>
+  <license>BSD</license>
+
+  <url type="website">None</url>
+  <!-- <url type="bugtracker"></url> -->
+
+  <author>Alexey Zakharov</author>
+
+  <!-- Dependencies which this package needs to build itself. -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Dependencies needed to compile this package. -->
+  <build_depend>roscpp</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>brics_actuator</build_depend>
+  <build_depend>actionlib</build_depend>
+  <build_depend>control_msgs</build_depend>
+  <build_depend>orocos_kdl</build_depend>
+
+  <!-- Dependencies needed after this package is compiled. -->
+  <run_depend>roscpp</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>brics_actuator</run_depend>
+  <run_depend>actionlib</run_depend>
+  <run_depend>control_msgs</run_depend>
+  <run_depend>orocos_kdl</run_depend>
+
+  <!-- Dependencies needed only for running tests. -->
+  <!-- <test_depend>roscpp</test_depend> -->
+  <!-- <test_depend>sensor_msgs</test_depend> -->
+  <!-- <test_depend>brics_actuator</test_depend> -->
+  <!-- <test_depend>actionlib</test_depend> -->
+  <!-- <test_depend>control_msgs</test_depend> -->
+  <!-- <test_depend>orocos_kdl</test_depend> -->
+
+<export>
+    <cpp lflags="-Wl,-rpath,${prefix}/lib -L${prefix}/lib `rosboost-cfg --lflags thread` -lyoubot_trajectory_action_server" cflags="-I${prefix}/cfg/cpp -I${prefix}/include `rosboost-cfg --cflags`"/>
+</export>
+
+</package>

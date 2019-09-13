@@ -1,0 +1,35 @@
+<package>
+  <name></name>
+  <version>1.0.0</version>
+  <description>youbot_common</description>
+  <maintainer email="">Alexey Zakharov</maintainer>
+  <maintainer email="">Sebastian Blumenthal</maintainer>
+
+  <license>LGPL</license>
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/youbot_common</url>
+  <!-- <url type="bugtracker"></url> -->
+
+  <author>Alexey Zakharov</author>
+  <author>Sebastian Blumenthal</author>
+
+  <!-- Dependencies which this package needs to build itself. -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Dependencies needed to compile this package. -->
+
+
+  <!-- Dependencies needed after this package is compiled. -->
+  <run_depend>youbot_description</run_depend>
+  <run_depend>youbot_trajectory_action_server</run_depend>
+
+  <!-- Dependencies needed only for running tests. -->
+
+
+
+
+
+
+
+</package>

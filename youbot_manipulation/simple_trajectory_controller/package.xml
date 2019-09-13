@@ -1,0 +1,48 @@
+<package>
+  <name>simple_trajectory_controller</name>
+  <version>1.0.0</version>
+  <description>youbot_arm_navigation</description>
+  <maintainer email="">Dominik Lechner</maintainer>
+
+  <license>LGPL</license>
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/youbot_arm_navigation</url>
+  <!-- <url type="bugtracker"></url> -->
+
+  <author>Dominik Lechner</author>
+
+  <!-- Dependencies which this package needs to build itself. -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Dependencies needed to compile this package. -->
+  <build_depend>planning_environment</build_depend>
+  <build_depend>arm_kinematics_constraint_aware</build_depend>
+  <build_depend>ompl_ros_interface</build_depend>
+  <build_depend>trajectory_filter_server</build_depend>
+  <build_depend>constraint_aware_spline_smoother</build_depend>
+  <build_depend>move_arm</build_depend>
+  <build_depend>trajectory_msgs</build_depend>
+  <build_depend>brics_actuator</build_depend>
+
+  <!-- Dependencies needed after this package is compiled. -->
+  <run_depend>planning_environment</run_depend>
+  <run_depend>arm_kinematics_constraint_aware</run_depend>
+  <run_depend>ompl_ros_interface</run_depend>
+  <run_depend>trajectory_filter_server</run_depend>
+  <run_depend>constraint_aware_spline_smoother</run_depend>
+  <run_depend>move_arm</run_depend>
+  <run_depend>trajectory_msgs</run_depend>
+  <run_depend>brics_actuator</run_depend>
+
+  <!-- Dependencies needed only for running tests. -->
+  <!-- <test_depend>planning_environment</test_depend> -->
+  <!-- <test_depend>arm_kinematics_constraint_aware</test_depend> -->
+  <!-- <test_depend>ompl_ros_interface</test_depend> -->
+  <!-- <test_depend>trajectory_filter_server</test_depend> -->
+  <!-- <test_depend>constraint_aware_spline_smoother</test_depend> -->
+  <!-- <test_depend>move_arm</test_depend> -->
+  <!-- <test_depend>trajectory_msgs</test_depend> -->
+  <!-- <test_depend>brics_actuator</test_depend> -->
+
+</package>

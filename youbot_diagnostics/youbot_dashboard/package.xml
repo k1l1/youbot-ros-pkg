@@ -1,0 +1,53 @@
+<package>
+  <name>youbot_dashboard</name>
+  <version>1.0.0</version>
+  <description>youbot_dashboard is a modified version of pr2_dashboard package.</description>
+  <maintainer email="">Frederik Hegger</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/youbot_dashboard</url>
+  <!-- <url type="bugtracker"></url> -->
+
+  <author>Frederik Hegger</author>
+
+  <!-- Dependencies which this package needs to build itself. -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Dependencies needed to compile this package. -->
+  <build_depend>rxtools</build_depend>
+  <build_depend>robot_monitor</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>roslib</build_depend>
+  <build_depend>std_srvs</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>pr2_power_board</build_depend>
+  <build_depend>pr2_msgs</build_depend>
+  <build_depend>pr2_dashboard</build_depend>
+  <build_depend>pr2_dashboard_aggregator</build_depend>
+
+  <!-- Dependencies needed after this package is compiled. -->
+  <run_depend>rxtools</run_depend>
+  <run_depend>robot_monitor</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>roslib</run_depend>
+  <run_depend>std_srvs</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>pr2_power_board</run_depend>
+  <run_depend>pr2_msgs</run_depend>
+  <run_depend>pr2_dashboard</run_depend>
+  <run_depend>pr2_dashboard_aggregator</run_depend>
+
+  <!-- Dependencies needed only for running tests. -->
+  <!-- <test_depend>rxtools</test_depend> -->
+  <!-- <test_depend>robot_monitor</test_depend> -->
+  <!-- <test_depend>rospy</test_depend> -->
+  <!-- <test_depend>roslib</test_depend> -->
+  <!-- <test_depend>std_srvs</test_depend> -->
+  <!-- <test_depend>std_msgs</test_depend> -->
+  <!-- <test_depend>pr2_power_board</test_depend> -->
+  <!-- <test_depend>pr2_msgs</test_depend> -->
+  <!-- <test_depend>pr2_dashboard</test_depend> -->
+  <!-- <test_depend>pr2_dashboard_aggregator</test_depend> -->
+
+</package>

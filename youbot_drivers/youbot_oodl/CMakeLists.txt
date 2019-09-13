@@ -1,5 +1,17 @@
-cmake_minimum_required(VERSION 2.4.6)
-include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
+# Catkin User Guide: http://www.ros.org/doc/groovy/api/catkin/html/user_guide/user_guide.html
+# Catkin CMake Standard: http://www.ros.org/doc/groovy/api/catkin/html/user_guide/standards.html
+cmake_minimum_required(VERSION 2.8.3)
+project(youbot_oodl)
+# Load catkin and all dependencies required for this package
+# TODO: remove all from COMPONENTS that are not catkin packages.
+find_package(catkin REQUIRED COMPONENTS std_msgs roscpp tf geometry_msgs nav_msgs std_srvs trajectory_msgs brics_actuator youbot_driver control_msgs actionlib diagnostic_msgs pr2_msgs setcap)
+
+# include_directories(include ${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS})
+# CATKIN_MIGRATION: removed during catkin migration
+# cmake_minimum_required(VERSION 2.4.6)
+
+# CATKIN_MIGRATION: removed during catkin migration
+# include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
 
 ## check required prerequisites
 SET(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/external/cmake_modules")
@@ -21,7 +33,9 @@ ADD_DEFINITIONS(-DYOUBOT_CONFIGURATIONS_DIR="${youbot_driver_PACKAGE_PATH}/confi
 #  MinSizeRel     : w/o debug symbols, w/ optimization, stripped binaries
 #set(ROS_BUILD_TYPE RelWithDebInfo)
 
-rosbuild_init()
+
+# CATKIN_MIGRATION: removed during catkin migration
+# rosbuild_init()
 
 #set the default path for built executables to the "bin" directory
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
@@ -29,15 +43,25 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 #uncomment if you have defined messages
-#rosbuild_genmsg()
+#add_message_files(
+  FILES
+  # TODO: List your msg files here
+)
 #uncomment if you have defined services
-#rosbuild_gensrv()
+#add_service_files(
+  FILES
+  # TODO: List your msg files here
+)
 
 #common commands for building c++ executables and libraries
-#rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
+#add_library(${PROJECT_NAME} src/example.cpp)
 #target_link_libraries(${PROJECT_NAME} another_library)
-#rosbuild_add_boost_directories()
-#rosbuild_link_boost(${PROJECT_NAME} thread)
+#
+# CATKIN_MIGRATION: removed during catkin migration
+# rosbuild_add_boost_directories()
+#find_package(Boost REQUIRED COMPONENTS thread)
+include_directories(${Boost_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES})
 
 ## Set Compilter flags
 INCLUDE_DIRECTORIES(
@@ -46,7 +70,7 @@ INCLUDE_DIRECTORIES(
 )	
 
 
-rosbuild_add_executable(youbot_oodl 
+add_executable(youbot_oodl 
     src/youbot_oodl.cpp 
     src/YouBotOODLWrapper.cpp
     src/YouBotConfiguration.cpp
@@ -70,14 +94,27 @@ add_custom_command(TARGET youbot_oodl POST_BUILD
 )    
 endif(USE_SETCAP)
 
-rosbuild_add_executable(youbot_arm_test 
+add_executable(youbot_arm_test 
     examples/youbot_arm_test.cpp 
 )
 
-rosbuild_add_executable(youbot_2nd_arm_test 
+add_executable(youbot_2nd_arm_test 
     examples/youbot_2nd_arm_test.cpp 
 )
 
-#rosbuild_add_executable(youbot_arm_velocity_test 
+#add_executable(youbot_arm_velocity_test 
 #    examples/youbot_arm_velocity_test.cpp 
 #)
+## Generate added messages and services with any dependencies listed here
+generate_messages(
+    #TODO DEPENDENCIES geometry_msgs std_msgs
+)
+
+# catkin_package parameters: http://ros.org/doc/groovy/api/catkin/html/dev_guide/generated_cmake_api.html#catkin-package
+# TODO: fill in what other packages will need to use this package
+catkin_package(
+    DEPENDS std_msgs roscpp tf geometry_msgs nav_msgs std_srvs trajectory_msgs brics_actuator youbot_driver control_msgs actionlib diagnostic_msgs pr2_msgs setcap
+    CATKIN_DEPENDS # TODO
+    INCLUDE_DIRS # TODO include
+    LIBRARIES # TODO
+)

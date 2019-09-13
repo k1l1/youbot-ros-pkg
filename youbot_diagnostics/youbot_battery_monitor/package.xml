@@ -1,0 +1,34 @@
+<package>
+  <name>youbot_battery_monitor</name>
+  <version>1.0.0</version>
+  <description>raw_youbot_battery_monitor</description>
+  <maintainer email="">Frederik Hegger</maintainer>
+  <maintainer email="">Jan Paulus</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/raw_youbot_battery_monitor</url>
+  <!-- <url type="bugtracker"></url> -->
+
+  <author>Frederik Hegger</author>
+  <author>Jan Paulus</author>
+
+  <!-- Dependencies which this package needs to build itself. -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Dependencies needed to compile this package. -->
+  <build_depend>roscpp</build_depend>
+  <build_depend>pr2_msgs</build_depend>
+  <build_depend>diagnostic_msgs</build_depend>
+
+  <!-- Dependencies needed after this package is compiled. -->
+  <run_depend>roscpp</run_depend>
+  <run_depend>pr2_msgs</run_depend>
+  <run_depend>diagnostic_msgs</run_depend>
+
+  <!-- Dependencies needed only for running tests. -->
+  <!-- <test_depend>roscpp</test_depend> -->
+  <!-- <test_depend>pr2_msgs</test_depend> -->
+  <!-- <test_depend>diagnostic_msgs</test_depend> -->
+
+</package>
