@@ -29,9 +29,11 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 include_directories(${Boost_INCLUDE_DIRS})
-target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES})	
+
 
 
 add_library(youbot_trajectory_action_server
     src/joint_trajectory_action.cpp
 )
+
+target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES})	

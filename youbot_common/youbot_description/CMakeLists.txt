@@ -22,7 +22,7 @@ include_directories(	${PROJECT_SOURCE_DIR}/include
 
 find_package(Boost REQUIRED COMPONENTS thread)
 include_directories(${Boost_INCLUDE_DIRS})
-target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES})
+
 
 #youbot base teleoperation experiment 
 add_executable(youbot_keyboard_teleop_experiment examples/keyboard_teleop_experiment.cpp)
@@ -48,3 +48,4 @@ add_executable(static_joint_publisher src/static_joint_publisher.cpp)
 
 #depricated
 add_executable(base_command_republisher src/base_command_republisher.cpp)
+
