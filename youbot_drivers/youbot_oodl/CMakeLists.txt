@@ -35,22 +35,22 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 find_package(Boost REQUIRED COMPONENTS thread)
 include_directories(${Boost_INCLUDE_DIRS}
 	            ${catkin_INCLUDE_DIRS}
-		    ${youbot_driver_INCLUDE_DIRS})
-
-## Set Compilter flags
-include_directories(
-	${OODL_YOUBOT_INCLUDE_DIR}
-	${Boost_INCLUDE_DIR}
-)	
-
+		    ${OODL_YOUBOT_INCLUDE_DIR}
+		    #bugfix (using absolute path to folder)
+		    /usr/local/include/youbot_driver/)
 
 add_executable(youbot_oodl 
     src/youbot_oodl.cpp 
     src/YouBotOODLWrapper.cpp
     src/YouBotConfiguration.cpp
     src/joint_state_observer_oodl.cpp
-    ${OODL_YOUBOT_INCLUDE_DIR}
 )
+
+get_cmake_property(_variableNames VARIABLES)
+list (SORT _variableNames)
+foreach (_variableName ${_variableNames})
+    message(STATUS "${_variableName}=${${_variableName}}")
+endforeach()
 
 target_link_libraries(youbot_oodl ${OODL_YOUBOT_LIBRARIES} ${Boost_LIBRARIES} ${catkin_LIBRARIES})
 

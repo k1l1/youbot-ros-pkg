@@ -45,7 +45,7 @@
 #include "pluginlib/class_list_macros.h"
 #include <tf/transform_datatypes.h>
 
-PLUGINLIB_DECLARE_CLASS(youbot_description, CartesianComplianceController, controller::CartesianComplianceController, pr2_controller_interface::Controller)
+//PLUGINLIB_DECLARE_CLASS(youbot_description, CartesianComplianceController, controller::CartesianComplianceController, pr2_controller_interface::Controller)
 
 
 using namespace std;

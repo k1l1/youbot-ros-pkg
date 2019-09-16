@@ -24,7 +24,9 @@ include_directories(	${PROJECT_SOURCE_DIR}/include
 
 find_package(Boost REQUIRED COMPONENTS thread)
 include_directories(${Boost_INCLUDE_DIRS}
-	            ${catkin_INCLUDE_DIRS})
+	            ${catkin_INCLUDE_DIRS}
+		    #dirty fix for now
+		    ${CMAKE_CURRENT_SOURCE_DIR}/../youbot_trajectory_action_server/include/)
 
 
 #youbot base teleoperation experiment 
@@ -43,6 +45,13 @@ add_executable(arm_joint_velocity_control_test examples/arm_joint_velocity_contr
 add_executable(arm_joint_torque_control_test examples/arm_joint_torque_control_test.cpp)
 
 #link against catkin
+target_link_libraries(youbot_keyboard_teleop_experiment
+			${catkin_LIBRARIES})
+
+target_link_libraries(joint_position_control
+			${caktin_LIBRARIES})
+
+
 target_link_libraries(youbot_universal_control
 			youbot_trajectory_action_server
 			${catkin_LIBRARIES})
@@ -71,7 +80,7 @@ add_executable(base_command_republisher src/base_command_republisher.cpp)
 target_link_libraries(static_joint_publisher
 			${catkin_LIBRARIES})
 
-target_link_libraries(base_Command_republisher
+target_link_libraries(base_command_republisher
 			${catkin_LIBRARIES})
 
 

@@ -37,3 +37,8 @@ add_library(youbot_trajectory_action_server
 )
 
 target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES})
+
+install(DIRECTORY include/
+	DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+	FILES_MATCHING PATTERN "*.h"
+	PATTERN ".svn" EXCLUDE)
