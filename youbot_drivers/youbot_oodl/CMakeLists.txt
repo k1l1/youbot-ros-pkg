@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(youbot_oodl)
 
+find_package(catkin REQUIRED)
+
 find_package(catkin REQUIRED COMPONENTS std_msgs roscpp tf geometry_msgs nav_msgs std_srvs trajectory_msgs brics_actuator youbot_driver control_msgs actionlib diagnostic_msgs pr2_msgs ) #setcap)
+
+catkin_package()
 
 ## check required prerequisites
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/external/cmake_modules")
@@ -11,6 +15,8 @@ find_package(Boost REQUIRED COMPONENTS thread date_time filesystem system)
 ## preprocessor definitions
 add_definitions(-DYOUBOT_CONFIGURATIONS_DIR="${youbot_driver_PACKAGE_PATH}/config/")
 
+
+set(OODL_YOUBOT_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 # Set the build type.  Options are:
 #  Coverage       : w/ debug symbols, w/o optimization, w/ code-coverage
@@ -27,7 +33,9 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 find_package(Boost REQUIRED COMPONENTS thread)
-include_directories(${Boost_INCLUDE_DIRS})
+include_directories(${Boost_INCLUDE_DIRS}
+	            ${catkin_INCLUDE_DIRS}
+		    ${youbot_driver_INCLUDE_DIRS})
 
 ## Set Compilter flags
 include_directories(
@@ -41,9 +49,10 @@ add_executable(youbot_oodl
     src/YouBotOODLWrapper.cpp
     src/YouBotConfiguration.cpp
     src/joint_state_observer_oodl.cpp
+    ${OODL_YOUBOT_INCLUDE_DIR}
 )
 
-target_link_libraries(youbot_oodl ${OODL_YOUBOT_LIBRARIES} ${Boost_LIBRARIES})
+target_link_libraries(youbot_oodl ${OODL_YOUBOT_LIBRARIES} ${Boost_LIBRARIES} ${catkin_LIBRARIES})
 
 #option(USE_SETCAP "Set permissions to access ethernet interface without sudo" ON)
 
@@ -64,9 +73,13 @@ add_executable(youbot_arm_test
     examples/youbot_arm_test.cpp 
 )
 
+target_link_libraries(youbot_arm_test ${OODL_YOUBOT_LIBRARIES} ${Boost_LIBRARIES} ${catkin_LIBRARIES} )
+
 add_executable(youbot_2nd_arm_test 
     examples/youbot_2nd_arm_test.cpp 
 )
+
+target_link_libraries(youbot_2nd_arm_test ${OODL_YOUBOT_LIBRARIES} ${Boost_LIBRARIES} ${catkin_LIBRARIES})
 
 #add_executable(youbot_arm_velocity_test 
 #    examples/youbot_arm_velocity_test.cpp 

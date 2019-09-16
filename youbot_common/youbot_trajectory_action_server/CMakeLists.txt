@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(youbot_trajectory_action_server)
 
+find_package(catkin REQUIRED)
+
 find_package(catkin REQUIRED COMPONENTS roscpp sensor_msgs brics_actuator actionlib control_msgs orocos_kdl)
 
 ## check required prerequisites
@@ -19,7 +21,9 @@ find_package(Boost REQUIRED COMPONENTS thread date_time filesystem system)
 #  RelWithDebInfo : w/ debug symbols, w/ optimization
 #  MinSizeRel     : w/o debug symbols, w/ optimization, stripped binaries
 #set(ROS_BUILD_TYPE RelWithDebInfo)
-
+include_directories( include/
+		     ${catkin_INCLUDE_DIRS}
+		     ${Boost_INCLUDE_DIRS})
 
 catkin_package()
 
@@ -28,12 +32,8 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 #set the default path for built libraries to the "lib" directory
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
-include_directories(${Boost_INCLUDE_DIRS})
-
-
-
 add_library(youbot_trajectory_action_server
     src/joint_trajectory_action.cpp
 )
 
-target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES})	
+target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES})

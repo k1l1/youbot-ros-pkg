@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(youbot_description)
 
+find_package(catkin REQUIRED)
+
 find_package(catkin REQUIRED COMPONENTS robot_state_publisher urdf trajectory_msgs brics_actuator nav_msgs pr2_controller_interface control_toolbox pr2_controllers_msgs realtime_tools orocos_kdl sensor_msgs control_msgs actionlib youbot_trajectory_action_server pr2_gazebo_plugins)
 
 # Set the build type.  Options are:
@@ -21,7 +23,8 @@ include_directories(	${PROJECT_SOURCE_DIR}/include
 			${PROJECT_SOURCE_DIR}/src)
 
 find_package(Boost REQUIRED COMPONENTS thread)
-include_directories(${Boost_INCLUDE_DIRS})
+include_directories(${Boost_INCLUDE_DIRS}
+	            ${catkin_INCLUDE_DIRS})
 
 
 #youbot base teleoperation experiment 
@@ -32,10 +35,26 @@ add_library(joint_position_control src/joint_position_control.cpp)
 
 #youbot universal controller: joint space position control, joint velocity control, joint torque control
 add_library(youbot_universal_control src/youbot_universal_control.cpp src/joint_state_observer_gazebo.cpp)
-target_link_libraries(youbot_universal_control youbot_trajectory_action_server)
+
 add_executable(arm_joint_position_control_test examples/arm_joint_position_control_test.cpp)
+
 add_executable(arm_joint_velocity_control_test examples/arm_joint_velocity_control_test.cpp)
+
 add_executable(arm_joint_torque_control_test examples/arm_joint_torque_control_test.cpp)
+
+#link against catkin
+target_link_libraries(youbot_universal_control
+			youbot_trajectory_action_server
+			${catkin_LIBRARIES})
+
+target_link_libraries(arm_joint_position_control_test
+			${catkin_LIBRARIES})
+
+target_link_libraries(arm_joint_velocity_control_test
+			${catkin_LIBRARIES})
+
+target_link_libraries(arm_joint_torque_control_test
+			${catkin_LIBRARIES})
 
 #cartesian compliance control for the unified youbot arm and base system
 #add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/src/20_sim_cartesian_compliance_control)
@@ -48,4 +67,13 @@ add_executable(static_joint_publisher src/static_joint_publisher.cpp)
 
 #depricated
 add_executable(base_command_republisher src/base_command_republisher.cpp)
+
+target_link_libraries(static_joint_publisher
+			${catkin_LIBRARIES})
+
+target_link_libraries(base_Command_republisher
+			${catkin_LIBRARIES})
+
+
+
 
