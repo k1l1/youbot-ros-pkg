@@ -13,7 +13,7 @@ set(Boost_ADDITIONAL_VERSIONS "1.39" "1.39.0" "1.40" "1.40.0" "1.41" "1.41.0" "1
 find_package(Boost REQUIRED COMPONENTS thread date_time filesystem system)
 
 ## preprocessor definitions
-add_definitions(-DYOUBOT_CONFIGURATIONS_DIR="${youbot_driver_PACKAGE_PATH}/config/")
+add_definitions(-DYOUBOT_CONFIGURATIONS_DIR=/usr/local/config)
 
 
 set(OODL_YOUBOT_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
