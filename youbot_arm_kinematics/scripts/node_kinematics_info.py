@@ -17,11 +17,14 @@ YouBotDHParameters.DH_D, YouBotDHParameters.DH_THETA)
 
 pos = Pose()
 
-
+xyz = np.array([0,0,0])
+rpy = np.array([0,0,0])
 def callback(msg):
 	
 	q = np.array([msg.position[0],msg.position[1],msg.position[2],msg.position[3],msg.position[4]])
 
+	print(msg.position[0])
+	global xyz, rpy
 	xyz, qtn, rpy, h = ks.forward(q)
 	pos.position.x = xyz[0]
 	pos.position.y = xyz[1]
@@ -37,7 +40,7 @@ def kinematics_node():
 	update_rate = 10 #10Hz
 	rospy.init_node('youbot_kinematics_info_node',anonymous=False)
 	
-	pub_pose = rospy.Publisher('endeffector_cart_state', Pose , queue_size=10)
+	pub_pose = rospy.Publisher('endeffector_cart_state', Pose , queue_size=1)
 	
 	rospy.Subscriber('/joint_states', JointState, callback)
 	
@@ -46,6 +49,8 @@ def kinematics_node():
 	while not rospy.is_shutdown():
 	
 		pub_pose.publish(pos)
+
+		print("pos: " + str(xyz) + " rpy: " + str(rpy))  
 		rate.sleep()
 		
 def stop():

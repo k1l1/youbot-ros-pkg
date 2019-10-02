@@ -50,7 +50,7 @@ def callback_incomming_pose(msg):
 		joint_msg.positions[2].value = qs[0,2]
 		joint_msg.positions[3].value = qs[0,3]
 		joint_msg.positions[4].value = qs[0,4]
-	else
+	else:
 		print("No solution found")
 	
 	print(qs)
@@ -61,7 +61,7 @@ def kinematics_node():
 	rospy.init_node('youbot_kinematics_control_node',anonymous=False)
 	
 	#pub_pose = rospy.Publisher('arm_1/endeffector_pose', Pose)
-	pub_joint = rospy.Publisher('arm_1/arm_controller/position_command', JointPositions, queue_size=10)
+	pub_joint = rospy.Publisher('arm_1/arm_controller/position_command', JointPositions, queue_size=1)
 	
 	rospy.Subscriber('endeffector_pose_commands', Pose, callback_incomming_pose)
 	
