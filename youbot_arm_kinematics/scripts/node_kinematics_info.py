@@ -19,12 +19,18 @@ pos = Pose()
 
 xyz = np.array([0,0,0])
 rpy = np.array([0,0,0])
+qtn = np.array([0,0,0,0])
 def callback(msg):
 	
 	q = np.array([msg.position[0],msg.position[1],msg.position[2],msg.position[3],msg.position[4]])
 
-	print(msg.position[0])
-	global xyz, rpy
+	if 'arm' not in msg.name[0]:
+		return
+
+		
+
+	print("val: [" + str(msg.position[0]))
+	global xyz, rpy, qtn
 	xyz, qtn, rpy, h = ks.forward(q)
 	pos.position.x = xyz[0]
 	pos.position.y = xyz[1]
@@ -50,7 +56,7 @@ def kinematics_node():
 	
 		pub_pose.publish(pos)
 
-		print("pos: " + str(xyz) + " rpy: " + str(rpy))  
+		print("pos: " + str(xyz) + " rpy: " + str(rpy) + " qtn: " + str(qtn))  
 		rate.sleep()
 		
 def stop():
