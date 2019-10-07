@@ -3,7 +3,7 @@ import rospy
 import tf
 import numpy as np
 import math
-import sys, termios, tty, os, time
+import curses
 
 
 
@@ -14,70 +14,84 @@ from brics_actuator.msg import JointPositions
 
 msg = Pose()
 
-msg.position.x = 0.55
+msg.position.x = 0.0
 msg.position.y = 0.0
-msg.position.z = 0.0
+msg.position.z = 0.55
 
 msg.orientation.x = 0.0
 msg.orientation.y = 0.0
-msg.orientation.z = 0.0
-msg.orientation.w = 1.0
-
+msg.orientation.z = 1.0
+msg.orientation.w = 0.0
 increment = 0.01 # 1cm
 
-def getch():
-	fd = sys.stdin.fileno()
-	old_settings = termios.tcgetattr(fd)
-	try:
-		tty.setraw(sys.stdin.fileno())
-		ch = sys.stdin.read(1)
-	finally:
-		termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-	return ch
-	
+increment2 = 0.1
 
-def kinematics_node():
-	global msg
+euler = tf.transformations.euler_from_quaternion((0.0,0.0,1.0,0.0))
+rpy = np.array([euler[0],euler[1],euler[2]])
+def manual_control_node(stdscr):
+	global msg, increment, increment2
 
 	update_rate = 10 #10Hz
 	rospy.init_node('youbot_manual_cart_control',anonymous=False)
 	
-	pub_pose = rospy.Publisher('endeffector_pose_command', Pose , queue_size=1)
+	pub_pose = rospy.Publisher('endeffector_pose_commands', Pose , queue_size=1)
 	
 	rate = rospy.Rate(update_rate)
 	
-	fd = sys.stdin.fileno()
-	fl = fcntl.fcntl(fd, fcntl.F_GETFL)
-	fcntl.fcntl(fd, fcntl.F_SETFL, fl | os.O_NONBLOCK)
+	stdscr.nodelay(1)
 	
 	while not rospy.is_shutdown():
 	
-		pub_pose.publish(pos)
-
-		print("pos: " + str(xyz) + " rpy: " + str(rpy) + " qtn: " + str(qtn))  
 		rate.sleep()
 		
-		keystroke = getch()
+		keystroke = stdscr.getch()
+		print(keystroke)
 		
-		if keystroke == "a":
+		if keystroke == 97:
 			msg.position.x = msg.position.x + increment
-		if keystroke == "y":
+		if keystroke == 121:
 			msg.position.x = msg.position.x - increment
-		if keystroke == "s":
+		if keystroke == 115:
 			msg.position.y = msg.position.y + increment
-		if keystroke == "x":
+		if keystroke == 120:
 			msg.position.y = msg.position.y - increment
-		if keystorke == "d":
+		if keystroke == 100:
 			msg.position.z = msg.position.z + increment
-		if keystroke == "c":
+		if keystroke == 99:
 			msg.position.z = msg.position.z - increment
+
+		if keystroke == 102:
+			rpy[0] = rpy[0] + increment2
+		if keystroke == 118:
+			rpy[0] = rpy[0] - increment2
+
+		if keystroke == 102:
+			rpy[1] = rpy[1] + increment2
+		if keystroke == 118:
+			rpy[1] = rpy[1] - increment2
+
+		if keystroke == 102:
+			rpy[2] = rpy[2] + increment2
+		if keystroke == 118:
+			rpy[2] = rpy[2] - increment2
+
+
+		q = tf.transformations.quaternion_from_euler(rpy[0],rpy[1],rpy[2])
+		
+		msg.orientation.x = q[0]
+		msg.orientation.y = q[1]
+		msg.orientation.z = q[2]
+		msg.orientation.w = q[3]
+
+		pub_pose.publish(msg)
+
 	
 def stop():
 	rospy.loginfo("STOP")
 	
 if __name__ == '__main__':
 	try:
-		kinematics_node()
+		curses.wrapper(manual_control_node)
 
 	except KeyboardInterrupt:
 		stop()
