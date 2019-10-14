@@ -25,5 +25,3 @@ catkin_package(
 
 catkin_package()
 
-catkin_install_python(PROGRAMS scripts/fk_test scripts/ik_test
-                      DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
