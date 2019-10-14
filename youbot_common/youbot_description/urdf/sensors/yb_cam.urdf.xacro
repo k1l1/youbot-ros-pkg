@@ -22,7 +22,7 @@
     </inertial>
 
     <visual>
-      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 ${M_PI/2}" />
+      <origin xyz="-0.036 +0.025 0.01" rpy="${M_PI/2} ${M_PI} ${M_PI/2}" />
       <geometry>
        <mesh filename="package://youbot_description/meshes/sensors/yb_cam.stl" scale="0.001 0.001 0.001"/>
       </geometry>
